@@ -1,0 +1,11 @@
+@import "tailwindcss";
+
+
+@font-face {
+  font-family:Canopee ;
+  src: url(./assets/Fonts/Canopee\ Regular.otf);
+  
+}
+.Canopee{
+  font-family: Canopee;
+}
