@@ -1,11 +1,22 @@
 @import "tailwindcss";
 
+::-webkit-scrollbar{
+  width: 0%;
+}
 
 @font-face {
-  font-family:Canopee ;
   src: url(./assets/Fonts/Canopee\ Regular.otf);
+  src: url(./assets/Fonts/Actay-RegularItalic.otf);
   
 }
 .Canopee{
   font-family: Canopee;
+}
+
+
+.actay{
+  font-family: actay;
+}
+.actay::placeholder {
+  color: rgba(255, 255, 255, 0.7);
 }
