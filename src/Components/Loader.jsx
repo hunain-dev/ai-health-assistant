@@ -32,11 +32,11 @@ const Loader = ({ onComplete }) => {
       ref={loaderRef}
       className="fixed inset-0 z-[999] grid grid-cols-5 overflow-hidden"
     >
-      <div className="column h-full bg-[#FD8124]"></div>
-      <div className="column h-full bg-[#FD8124]"></div>
-      <div className="column h-full bg-[#FD8124]"></div>
-      <div className="column h-full bg-[#FD8124]"></div>
-      <div className="column h-full bg-[#FD8124]"></div>
+      <div className="column h-full bg-[#232A27]"></div>
+      <div className="column h-full bg-[#232A27]"></div>
+      <div className="column h-full bg-[#232A27]"></div>
+      <div className="column h-full bg-[#232A27]"></div>
+      <div className="column h-full bg-[#232A27]"></div>
     </div>
   );
 };

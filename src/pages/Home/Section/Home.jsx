@@ -6,9 +6,23 @@ import frameflowesr from "../../../assets/images/grass-flowers-realistic-border-
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Loader from "../../../Components/Loader";
+import Login from "../../Forms/Login";
+import Signup from "../../Forms/Signup";
 const Home = () => {
     const [input, setInput] = useState("");
     const navigate = useNavigate();
+    // const [showLogin, setShowLogin] = useState(false);
+    // const [showSignup, setShowSignup] = useState(false);
+
+    // timer after 5 sec login page open
+
+    // useEffect(() => {
+    //     const timer = setTimeout(() => {
+    //       setShowLogin(true);
+    //     }, 5000);
+      
+    //     return () => clearTimeout(timer);
+    //   }, []);
 
     const handleKeyDown = (e) => {
         if (e.key === "Enter" && input.trim() !== "") {
@@ -20,6 +34,24 @@ const Home = () => {
     <>
       <div className="h-full w-full  ">
       <Loader />
+{/* {showLogin && !showSignup && (
+  <div className="fixed inset-0 bg-black/70 flex items-center justify-center z-50">
+    <div className="w-full max-w-md">
+      <Login onSubmit={() => setShowLogin(false)} />
+
+      <p
+        className="text-sm text-gray-300 mt-3 cursor-pointer hover:text-green-400 text-center"
+        onClick={() => {
+          setShowLogin(false);   
+          setShowSignup(true);   
+        }}
+      >
+        Create an account
+      </p>
+    </div>
+  </div>
+)} */}
+
 
         <Header />
         <div className="h-full w-full  mt-7 grid grid-cols-1 ">

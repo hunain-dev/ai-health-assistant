@@ -1,12 +1,13 @@
 import React, { useState } from "react";
 import { AiOutlineLogout } from "react-icons/ai";
 import { CiChat1, CiHome } from "react-icons/ci";
-import { FaFile, FaImage, FaMicrophone } from "react-icons/fa";
+import { FaFile, FaImage, FaMicrophone, FaMoon } from "react-icons/fa";
 import { GoPlus } from "react-icons/go";
 import { IoIosSend } from "react-icons/io";
 import { Link } from "react-router-dom";
 import Loader from "../../../../Components/Loader";
 import { TiWorld } from "react-icons/ti";
+import { BsCloudSun } from "react-icons/bs";
 
 const Site = () => {
   const [prompt, setPrompt] = useState("");
@@ -14,6 +15,12 @@ const Site = () => {
   const [open, setOpen] = useState(false);
   const [languageoepn, setlanguageoepn] = useState(false);
   const [selectedLang, setSelectedLang] = useState("English");
+  const [isDark, setIsDark] = useState(false);
+
+
+  const handleToggle = () => {
+    setIsDark(!isDark);
+  };
 
   // all languages
   const languages = [
@@ -117,9 +124,27 @@ const Site = () => {
                   ))}
                 </div>
               )}
-            </div>
 
-            <AiOutlineLogout className="text-white cursor-pointer  text-2xl" />
+
+            
+            </div>
+  
+  <div className="flex items-center justify-center gap-8 flex-col">
+  <AiOutlineLogout className="text-white cursor-pointer  text-2xl" />
+  <button
+      onClick={handleToggle}
+      className="flex items-center justify-center  rounded-full transition-all duration-300 hover:scale-110"
+    >
+      {isDark ? (
+        <BsCloudSun  className="text-white text-1xl cursor-pointer transition-transform duration-300 hover:rotate-180" />
+      ) : (
+        <FaMoon className="text-white text-1xl cursor-pointer transition-transform duration-300 hover:rotate-180"  />
+      )}
+    </button>
+
+  </div>
+         
+
           </div>
         </div>
 
