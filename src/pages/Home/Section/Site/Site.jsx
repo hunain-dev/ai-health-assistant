@@ -5,6 +5,7 @@ import { FaMicrophone } from "react-icons/fa";
 import { GoPlus } from "react-icons/go";
 import { IoIosSend } from "react-icons/io";
 import { Link } from "react-router-dom";
+import Loader from "../../../../Components/Loader";
 
 const Site = () => {
   return (
@@ -25,6 +26,8 @@ const Site = () => {
         </div>
       
 <div className="h-full w-full overflow-hidden  rounded-3xl">
+<Loader  />
+
   <div className="h-full relative p-3">
     <div className="py-4 flex items-center justify-between px-4 rounded-full w-[95%] border border-[#e2e0e0] absolute bottom-8 left-1/2 -translate-x-1/2 bg-[#FFFFFF] shadow-md">
     <div className="flex items-center gap-3">

@@ -5,6 +5,7 @@ import { IoIosSend } from "react-icons/io";
 import frameflowesr from "../../../assets/images/grass-flowers-realistic-border-vector-removebg-preview.png";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import Loader from "../../../Components/Loader";
 const Home = () => {
     const [input, setInput] = useState("");
     const navigate = useNavigate();
@@ -18,6 +19,8 @@ const Home = () => {
   return (
     <>
       <div className="h-full w-full  ">
+      <Loader />
+
         <Header />
         <div className="h-full w-full  mt-7 grid grid-cols-1 ">
           <div className="h-full w-full    ">

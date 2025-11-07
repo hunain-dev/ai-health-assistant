@@ -3,6 +3,7 @@ import LocomotiveScroll from 'locomotive-scroll';
 import { Routes, Route } from 'react-router-dom';
 import Home from './pages/Home/Section/Home';
 import Site from './pages/Home/Section/Site/Site';
+import Loader from './Components/Loader';
 
 const App = () => {
   const scrollRef = useRef(null);
@@ -19,6 +20,7 @@ const App = () => {
 
   return (
     <div ref={scrollRef} className="h-full w-full  bg-[#F9F9F9]">
+
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/Site" element={<Site />} />
