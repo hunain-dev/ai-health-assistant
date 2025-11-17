@@ -6,16 +6,15 @@ import { GoPlus } from "react-icons/go";
 import { IoIosSend } from "react-icons/io";
 import { Link } from "react-router-dom";
 import Loader from "../../../../Components/Loader";
-import { TiWorld } from "react-icons/ti";
 import { BsCloudSun } from "react-icons/bs";
-import Button from "../../../../Components/Button";
+import SocialShare from "../../../../Components/SocialShare";
+import { motion, AnimatePresence } from "framer-motion";
+import WorldLanguages from "../../../../Components/WorldLanguages";
 
 const Site = () => {
   const [prompt, setPrompt] = useState("");
   const [showPopup, setShowPopup] = useState(false);
   const [open, setOpen] = useState(false);
-  const [languageoepn, setlanguageoepn] = useState(false);
-  const [selectedLang, setSelectedLang] = useState("English");
   const [isDark, setIsDark] = useState(false);
 
   const handleToggle = () => {
@@ -23,14 +22,6 @@ const Site = () => {
   };
 
   // all countries of languages
-
-  // const coutnries_languaes  = ()=>{
-  // }
-
-  const handleLanguageChange = (lang) => {
-    setSelectedLang(lang.name);
-    setOpen(false);
-  };
 
   //   file open
   const handleClick = () => {
@@ -43,7 +34,7 @@ const Site = () => {
 
     setTimeout(() => {
       setShowPopup(false);
-    }, 4000);
+    }, 3000);
   };
 
   //   ai promit answer
@@ -72,40 +63,19 @@ const Site = () => {
   return (
     <div className="h-full w-full">
       <div className=" flex mt-2 items-end justify-end px-10 w-full">
-      <Button text="Share" className="bg-[#232A27] px-9 py-3 text-[1vw]"/>
-
+        <SocialShare />
       </div>
 
       <div className="h-full  w-full grid grid-cols-[1fr_10fr]  p-4">
-
         <div className="h-full p-7">
           <div className="h-[80vh] gap-8 flex-col flex items-center py-8 justify-between w-full rounded-full bg-[#262D2A]">
             <div className="flex items-center justify-center flex-col gap-6">
-
               {" "}
               <Link to="/">
                 <CiHome className="text-white cursor-pointer text-3xl" />
               </Link>
               <CiChat1 className="text-white cursor-pointer text-3xl" />
-              <TiWorld
-                onClick={() => setlanguageoepn(!languageoepn)}
-                className="text-white cursor-pointer text-3xl"
-              />
-              {languageoepn && (
-                <div className="absolute bottom-50 left-27 bg-white shadow-xl rounded-xl border border-gray-200 p-2 w-60 max-h-65 overflow-y-scroll borde z-50 animate-fadeIn">
-                  {languages.map((lang, index) => (
-                    <button
-                      key={index}
-                      onClick={() => handleLanguageChange(lang)}
-                      className={`actay w-full flex items-center gap-2 text-left px-3 py-2 rounded-md text-sm hover:bg-gray-100 ${
-                        lang.name === selectedLang ? "bg-gray-100 " : ""
-                      }`}
-                    >
-                      <span>{lang.flag}</span> {lang.name}
-                    </button>
-                  ))}
-                </div>
-              )}
+              <WorldLanguages/>
             </div>
 
             <div className="flex items-center justify-center gap-8 flex-col">
@@ -158,14 +128,20 @@ const Site = () => {
 
                 {/* Popup Menu */}
                 {open && (
-                  <div className="absolute py-7 bottom-12 left-0 bg-white shadow-xl rounded-xl border border-gray-200 px-6 flex flex-col gap-5 z-50 animate-fadeIn">
+                  <motion.div
+                    initial={{ opacity: 0, scale: 0.8, y: 20 }}
+                    animate={{ opacity: 1, scale: 1, y: 0 }}
+                    exit={{ opacity: 0, scale: 0.8, y: 20 }}
+                    transition={{ duration: 0.25, ease: "easeOut" }}
+                    className="absolute py-7 bottom-12 left-0 bg-white shadow-xl rounded-xl border border-gray-200 px-6 flex flex-col gap-5 z-50 animate-fadeIn"
+                  >
                     <button className="actay font-[500] flex items-center gap-2 hover:bg-gray-100 px-2 py-1 rounded-md transition  text-gray-900">
                       <FaImage className="text-black" /> Add Photo
                     </button>
                     <button className="actay flex items-center gap-2 hover:bg-gray-100 px-2 py-1 rounded-md transition  text-gray-900">
                       <FaFile className="text-black" /> Upload File
                     </button>
-                  </div>
+                  </motion.div>
                 )}
               </div>
 
@@ -183,9 +159,15 @@ const Site = () => {
                   className="text-xl text-gray-700 cursor-pointer hover:text-black transition"
                 />
                 {showPopup && (
-                  <div className="actay absolute bottom-30 left-1/2 -translate-x-1/2 bg-[#262D2A] text-white text-[0.9vw] px-6 py-5 rounded-full shadow-md animate-fadeIn">
+                  <motion.div
+                    initial={{ opacity: 0, scale: 0.8, y: 20 }}
+                    animate={{ opacity: 1, scale: 1, y: 0 }}
+                    exit={{ opacity: 0, scale: 0.8, y: 20 }}
+                    transition={{ duration: 0.25, ease: "easeOut" }}
+                    className="actay absolute bottom-30 left-1/2 -translate-x-1/2 bg-[#262D2A] text-white text-[0.9vw] px-6 py-5 rounded-full shadow-md animate-fadeIn"
+                  >
                     This feature is not available yet.
-                  </div>
+                  </motion.div>
                 )}
 
                 <IoIosSend

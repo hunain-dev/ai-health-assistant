@@ -15,8 +15,8 @@ const Header = () => {
 
          </div>
          <div className='h-full flex items-center justify-center  '>
-            <Button text="Login/Signup" className="bg-[#232A27] px-9 py-3 text-[1vw]"/>
-         </div>
+          <Button text="Login/Signup" className="bg-[#232A27] px-9 py-3 text-[1vw]"/>
+        </div>
       
     </div>
   )
