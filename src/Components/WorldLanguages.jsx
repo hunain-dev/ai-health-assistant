@@ -14,7 +14,6 @@ const WorldLanguages = () => {
       try {
         const response = await axios.get(countrylan);
         const data = response.data;
-        console.log("data was found", data);
         setCountries(data);
       } catch {
         console.log("error found ohoo api no trunning");
@@ -76,7 +75,7 @@ const WorldLanguages = () => {
                       className="p-2 rounded-md bg-gray-100 hover:bg-gray-200 cursor-pointer flex justify-between"
                     >
                       <span>{item.name.common}</span>
-                      <span className="font-bold">{item.cca2}</span>
+                      <span className="actay text-[1vw]">{item.cca2}</span>
                     </div>
                   ))
                 )}
