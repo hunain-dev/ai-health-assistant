@@ -8,6 +8,7 @@ import { Link } from "react-router-dom";
 import Loader from "../../../../Components/Loader";
 import { TiWorld } from "react-icons/ti";
 import { BsCloudSun } from "react-icons/bs";
+import Button from "../../../../Components/Button";
 
 const Site = () => {
   const [prompt, setPrompt] = useState("");
@@ -17,40 +18,14 @@ const Site = () => {
   const [selectedLang, setSelectedLang] = useState("English");
   const [isDark, setIsDark] = useState(false);
 
-
   const handleToggle = () => {
     setIsDark(!isDark);
   };
 
-  // all languages
-  const languages = [
-    { name: "English", flag: "🇬🇧" },
-    { name: "Urdu", flag: "🇵🇰" },
-    { name: "Hindi", flag: "🇮🇳" },
-    { name: "Arabic", flag: "🇸🇦" },
-    { name: "French", flag: "🇫🇷" },
-    { name: "Spanish", flag: "🇪🇸" },
-    { name: "German", flag: "🇩🇪" },
-    { name: "Italian", flag: "🇮🇹" },
-    { name: "Chinese (Simplified)", flag: "🇨🇳" },
-    { name: "Japanese", flag: "🇯🇵" },
-    { name: "Korean", flag: "🇰🇷" },
-    { name: "Turkish", flag: "🇹🇷" },
-    { name: "Russian", flag: "🇷🇺" },
-    { name: "Portuguese", flag: "🇵🇹" },
-    { name: "Bengali", flag: "🇧🇩" },
-    { name: "Persian", flag: "🇮🇷" },
-    { name: "Malay", flag: "🇲🇾" },
-    { name: "Indonesian", flag: "🇮🇩" },
-    { name: "Thai", flag: "🇹🇭" },
-    { name: "Greek", flag: "🇬🇷" },
-    { name: "Dutch", flag: "🇳🇱" },
-    { name: "Swedish", flag: "🇸🇪" },
-    { name: "Polish", flag: "🇵🇱" },
-    { name: "Vietnamese", flag: "🇻🇳" },
-    { name: "Tamil", flag: "🇮🇳" },
-    { name: "Pashto", flag: "🇦🇫" },
-  ];
+  // all countries of languages
+
+  // const coutnries_languaes  = ()=>{
+  // }
 
   const handleLanguageChange = (lang) => {
     setSelectedLang(lang.name);
@@ -96,10 +71,17 @@ const Site = () => {
 
   return (
     <div className="h-full w-full">
-      <div className="h-full mt-7 w-full grid grid-cols-[1fr_10fr]  p-4">
-        <div className="h-full  p-7">
+      <div className=" flex mt-2 items-end justify-end px-10 w-full">
+      <Button text="Share" className="bg-[#232A27] px-9 py-3 text-[1vw]"/>
+
+      </div>
+
+      <div className="h-full  w-full grid grid-cols-[1fr_10fr]  p-4">
+
+        <div className="h-full p-7">
           <div className="h-[80vh] gap-8 flex-col flex items-center py-8 justify-between w-full rounded-full bg-[#262D2A]">
             <div className="flex items-center justify-center flex-col gap-6">
+
               {" "}
               <Link to="/">
                 <CiHome className="text-white cursor-pointer text-3xl" />
@@ -124,27 +106,21 @@ const Site = () => {
                   ))}
                 </div>
               )}
-
-
-            
             </div>
-  
-  <div className="flex items-center justify-center gap-8 flex-col">
-  <AiOutlineLogout className="text-white cursor-pointer  text-2xl" />
-  <button
-      onClick={handleToggle}
-      className="flex items-center justify-center  rounded-full transition-all duration-300 hover:scale-110"
-    >
-      {isDark ? (
-        <BsCloudSun  className="text-white text-1xl cursor-pointer transition-transform duration-300 hover:rotate-180" />
-      ) : (
-        <FaMoon className="text-white text-1xl cursor-pointer transition-transform duration-300 hover:rotate-180"  />
-      )}
-    </button>
 
-  </div>
-         
-
+            <div className="flex items-center justify-center gap-8 flex-col">
+              <AiOutlineLogout className="text-white cursor-pointer  text-2xl" />
+              <button
+                onClick={handleToggle}
+                className="flex items-center justify-center  rounded-full transition-all duration-300 hover:scale-110"
+              >
+                {isDark ? (
+                  <BsCloudSun className="text-white text-1xl cursor-pointer transition-transform duration-300 hover:rotate-180" />
+                ) : (
+                  <FaMoon className="text-white text-1xl cursor-pointer transition-transform duration-300 hover:rotate-180" />
+                )}
+              </button>
+            </div>
           </div>
         </div>
 
