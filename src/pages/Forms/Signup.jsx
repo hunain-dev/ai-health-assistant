@@ -4,19 +4,24 @@ import { FaHeartbeat } from "react-icons/fa";
 import { Link } from "react-router-dom";
 
 const Signup = () => {
-  const [formData, setFormData] = useState({
-    email: "",
-    password: "",
-  });
+ const [name, setname] = useState("")
+ const [email, setemail] = useState("")
+ const [password, setpassword] = useState("")
+ const [Confirmpassword, setConfirmpassword] = useState("")
 
-  const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
-  };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log("Login Data:", formData);
-  };
+ const handleSubmit = (e) => {
+  e.preventDefault(); 
+
+  if (password !== Confirmpassword) {
+    alert("Your confirm password does not match with password");
+  } else {
+    alert("Hey! Your confirm password is correct");
+  }
+};
+
+
+
 
   return (
     <div className="min-h-screen flex items-center justify-center  text-white px-4">
@@ -38,12 +43,13 @@ const Signup = () => {
         <div>
             <label className="actay block text-sm mb-1">Full name</label>
             <input
-              type="email"
-              name="email"
+              type="text"
+              name="name"
               placeholder="Enter your full name"
-              value={formData.email}
-              onChange={handleChange}
-              className="actay w-full px-4 py-2 rounded-lg bg-white/5 border border-gray-600 focus:border-green-400 outline-none text-white placeholder-gray-400 transition"
+              value={name}
+              onChange={(e) => setname(e.target.value)}  
+
+              className="actay w-full px-4 py-2 rounded-lg bg-white/5 border border-gray-600 focus:border-green-400 outline-none text-white placeholder-gray-400 transition text-sm"
               required
             />
           </div>
@@ -52,10 +58,10 @@ const Signup = () => {
             <input
               type="email"
               name="email"
+              value={email}
+              onChange={(e) => setemail(e.target.value)}  
               placeholder="yourname@example.com"
-              value={formData.email}
-              onChange={handleChange}
-              className="actay w-full px-4 py-2 rounded-lg bg-white/5 border border-gray-600 focus:border-green-400 outline-none text-white placeholder-gray-400 transition"
+              className="actay w-full px-4 py-2 rounded-lg bg-white/5 border border-gray-600 focus:border-green-400 outline-none text-white placeholder-gray-400 transition text-sm"
               required
             />
           </div>
@@ -66,21 +72,35 @@ const Signup = () => {
               type="password"
               name="password"
               placeholder="••••••••"
-              value={formData.password}
-              onChange={handleChange}
-              className="actay w-full px-4 py-2 rounded-lg bg-white/5 border border-gray-600 focus:border-green-400 outline-none text-white placeholder-gray-400 transition"
+              value={password}
+              onChange={(e) => setpassword(e.target.value)}  
+              className="actay w-full px-4 py-2 rounded-lg bg-white/5 border border-gray-600 focus:border-green-400 outline-none text-white placeholder-gray-400 transition text-sm"
               required
             />
           </div>
 
+          <div>
+            <label className="actay block text-sm mb-1">Confrim password</label>
+            <input
+              type="password"
+              name="confirmpassword"
+              placeholder="Enter your Confirm password"
+              value={Confirmpassword}
+              onChange={(e) => setConfirmpassword(e.target.value)}  
+              className="actay w-full px-4 py-2 rounded-lg bg-white/5 border border-gray-600 focus:border-green-400 outline-none text-white placeholder-gray-400 transition text-sm"
+              required
+            />
+          </div>
         
 
           <div className="actay flex justify-between text-sm text-gray-400">
           
-       <Link to="/Login">
-       <a  className="hover:text-green-400">
+       <Link to="/Login" 
+        className="hover:text-green-400"
+       
+       >
             Already have an account
-            </a>
+            
        </Link>   
           </div>
 
